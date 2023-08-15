@@ -13,7 +13,7 @@ services:
     image: giantswarm/tiny-tools:latest
     entrypoint: sleep infinity
     healthcheck:
-      test: curl --fail http://web-app:8080/calculator/greeting
+      test: curl --fail http://web-app:5000/calculator/greeting
       interval: 3s
       timeout: 2s
       retries: 3
@@ -27,7 +27,7 @@ services:
       - ./collections:/etc/newman
     command: >
       run ${newman_collectionName}.postman_collection.json --environment local.postman_environment.json \
-        --env-var "host=web-app:8080" --timeout-request 5000 --bail --reporters cli,json
+        --env-var "host=web-app:5000" --timeout-request 5000 --bail --reporters cli,json
     deploy:
       resources:
         limits:

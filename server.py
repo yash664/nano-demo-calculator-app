@@ -9,7 +9,7 @@ def greeting():
     # response_json = jsonify(response)
     # response_json.data += b"\n"
     # return response_json,200
-    return 'Hello world!'
+    return 'Hello world!',200
 
 @app.route("/calculator/add", methods=['POST'])
 def add():
@@ -46,4 +46,4 @@ def subtract():
     return jsonify(res),200
 
 if __name__ == '__main__':
-    app.run(port=8080,host='0.0.0.0')
+    app.run(port=5000,host='0.0.0.0')
