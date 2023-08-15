@@ -5,8 +5,10 @@ app = Flask(__name__)
 
 @app.route("/calculator/greeting", methods=['GET'])
 def greeting():
-    response = {"code":200,"content":"hello world!\n"}
-    return jsonify(response),200
+    response = {"code":200,"content":"hello world!"}
+    response_json = jsonify(response)
+    response_json.data += b"\n"
+    return response_json,200
     # return 'Hello world!', 200
 
 @app.route("/calculator/add", methods=['POST'])
